@@ -27,6 +27,7 @@ async function verifyPassword() {
 
 <template>
   <div class="centered">
+    <h1>Nuxt + Bcrypt + Cloudflare Workers</h1>
     <form @submit.prevent="hashPassword">
       <input v-model="password" type="password">
       <button type="submit">
@@ -41,6 +42,11 @@ async function verifyPassword() {
       </button>
       <p>Valid? {{ isValid }}</p>
     </form>
+    <p>
+      <a href="https://hub.nuxt.com">Deployed with NuxtHub</a>
+      •
+      <a href="https://github.com/atinux/nuxt-bcrypt-edge">Source code</a>
+    </p>
   </div>
 </template>
 
@@ -55,18 +61,9 @@ async function verifyPassword() {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-h1 {
-  font-size: 32px;
-}
-@media (min-width: 768px) {
-  h1 {
-    font-size: 64px;
-  }
-}
 a {
   color: #888;
   text-decoration: none;
-  font-size: 18px;
 }
 a:hover {
   text-decoration: underline;

@@ -5,10 +5,7 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
 
   // https://nuxt.com/modules
-  modules: [
-    '@nuxthub/core',
-    '@nuxt/eslint'
-  ],
+  modules: ['@nuxthub/core', '@nuxt/eslint'],
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
   hub: {},
