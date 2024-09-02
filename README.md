@@ -26,6 +26,36 @@ Start the development server on `http://localhost:3000`:
 pnpm dev
 ```
 
+## Hashing and Verifying
+
+Hashing the password [./server/api/hash.post.ts](./server/api/hash.post.ts):
+
+```ts
+import { hashSync } from 'bcrypt-edge/dist/bcrypt-edge'
+
+export default defineEventHandler(async (event) => {
+  const { password } = await readBody(event)
+
+  const hash = hashSync(password, 10)
+
+  return { hash }
+});
+```
+  
+Verifying the password [./server/api/verify.post.ts](./server/api/verify.post.ts):
+
+```ts
+import { compareSync } from 'bcrypt-edge/dist/bcrypt-edge'
+
+export default defineEventHandler(async (event) => {
+  const { hash, password } = await readBody(event)
+
+  const isValid = compareSync(password, hash)
+
+  return { isValid }
+});
+```
+
 ## Production
 
 Build the application for production:
