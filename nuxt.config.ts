@@ -19,6 +19,12 @@ export default defineNuxtConfig({
     }
   },
 
+  nitro: {
+    unenv: {
+      external: ['node:crypto']
+    }
+  },
+
   // https://devtools.nuxt.com
   devtools: { enabled: true }
 })
