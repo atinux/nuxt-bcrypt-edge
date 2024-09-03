@@ -13,7 +13,7 @@
   "dependencies": {
     "@nuxt/eslint": "^0.5.5",
     "@nuxthub/core": "^0.7.9",
-    "bcrypt-edge": "^0.0.6",
+    "bcrypt-edge": "npm:@barbapapazes/bcrypt-edge@0.0.6",
     "nuxt": "^3.13.0",
     "vue": "^3.4.38",
     "vue-router": "^4.4.3"

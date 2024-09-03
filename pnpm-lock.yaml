@@ -15,8 +15,8 @@ importers:
         specifier: ^0.7.9
         version: 0.7.9(ioredis@5.4.1)(magicast@0.3.4)(rollup@4.18.0)(vite@5.4.2(@types/node@20.14.9)(terser@5.31.1))
       bcrypt-edge:
-        specifier: ^0.0.6
-        version: 0.0.6
+        specifier: npm:@barbapapazes/bcrypt-edge@0.0.6
+        version: '@barbapapazes/bcrypt-edge@0.0.6'
       nuxt:
         specifier: ^3.13.0
         version: 3.13.0(@opentelemetry/api@1.9.0)(@parcel/watcher@2.4.1)(@types/node@20.14.9)(encoding@0.1.13)(eslint@9.9.1(jiti@1.21.6))(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.0)(terser@5.31.1)(typescript@5.4.5)(vite@5.4.2(@types/node@20.14.9)(terser@5.31.1))(vue-tsc@2.1.4(typescript@5.4.5))
@@ -237,6 +237,9 @@ packages:
   '@babel/types@7.25.4':
     resolution: {integrity: sha512-zQ1ijeeCXVEh+aNL0RlmkPkG8HUiDcU2pzQQFjtbntgAczRASFzj4H+6+bV+dy1ntKR14I/DypeuRG1uma98iQ==}
     engines: {node: '>=6.9.0'}
+
+  '@barbapapazes/bcrypt-edge@0.0.6':
+    resolution: {integrity: sha512-2tN7B7Q20s7RMv1jZXMiMNhAAh2+3k1ZJTvpt/VRIY4zatruw3Lp4rGoJHS6KHiQkja2InPPnSg4gVYuyFRznw==}
 
   '@cloudflare/kv-asset-handler@0.3.4':
     resolution: {integrity: sha512-YLPHc8yASwjNkmcDMQMY35yiWjoKAKnhUbPRszBRS0YgH+IXtsMp61j+yTcnCE3oO2DgP0U3iejLC8FTtKDC8Q==}
@@ -1927,9 +1930,6 @@ packages:
 
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
-
-  bcrypt-edge@0.0.6:
-    resolution: {integrity: sha512-lL5Y2V6RCwGvfY/6lIUGM8N1XfRwU0ncIr3dZO6d64KfaDQERcv/9TMWtUkiANxawg1BPvLlfjvanFOXmUIZwA==}
 
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
@@ -4893,6 +4893,8 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
 
+  '@barbapapazes/bcrypt-edge@0.0.6': {}
+
   '@cloudflare/kv-asset-handler@0.3.4':
     dependencies:
       mime: 3.0.0
@@ -6648,8 +6650,6 @@ snapshots:
     optional: true
 
   base64-js@1.5.1: {}
-
-  bcrypt-edge@0.0.6: {}
 
   binary-extensions@2.3.0: {}
 
