@@ -7,5 +7,5 @@ export default defineEventHandler(async (event) => {
   const isValid = compareSync(password, hash)
   const end = Date.now()
 
-  return { isValid, time: Math.round(end - start) }
+  return { isValid, time: end - start }
 });

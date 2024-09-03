@@ -4,6 +4,7 @@ const password = ref('')
 const hash = ref('')
 const time = ref(0)
 async function hashPassword() {
+  const start = Date.now()
   const res = await $fetch('/api/hash', {
     method: 'POST',
     body: {
@@ -12,12 +13,13 @@ async function hashPassword() {
     },
   })
   hash.value = res.hash
-  time.value = res.time
+  time.value = Math.round(Date.now() - start)
 }
 
 const passwordVerify = ref('')
 const isValid = ref(false)
 async function verifyPassword() {
+  const start = Date.now()
   const res = await $fetch('/api/verify', {
     method: 'POST',
     body: {
@@ -27,7 +29,7 @@ async function verifyPassword() {
     },
   })
   isValid.value = res.isValid
-  time.value = res.time
+  time.value = Math.round(Date.now() - start)
 }
 </script>
 
@@ -37,7 +39,13 @@ async function verifyPassword() {
     <form @submit.prevent="hashPassword">
       <div class="group">
         <label for="rounds">Rounds: </label>
-        <input v-model="rounds" id="rounds" type="number" min="1" max="13">
+        <input
+          id="rounds"
+          v-model="rounds"
+          type="number"
+          min="1"
+          max="13"
+        >
       </div>
       <input v-model="password" type="password">
       <button type="submit">
@@ -52,7 +60,9 @@ async function verifyPassword() {
       </button>
       <p>Valid? {{ isValid }}</p>
     </form>
-    <p v-if="time">Time: {{ time }}ms</p>
+    <p v-if="time">
+      Time: {{ time }}ms
+    </p>
     <p>
       <a href="https://hub.nuxt.com">Deployed with NuxtHub</a>
       •
