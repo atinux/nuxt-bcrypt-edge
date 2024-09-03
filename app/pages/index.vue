@@ -1,14 +1,18 @@
 <script setup>
+const rounds = ref(10)
 const password = ref('')
 const hash = ref('')
+const time = ref(0)
 async function hashPassword() {
   const res = await $fetch('/api/hash', {
     method: 'POST',
     body: {
+      rounds: rounds.value,
       password: password.value,
     },
   })
   hash.value = res.hash
+  time.value = res.time
 }
 
 const passwordVerify = ref('')
@@ -17,11 +21,13 @@ async function verifyPassword() {
   const res = await $fetch('/api/verify', {
     method: 'POST',
     body: {
+      rounds: rounds.value,
       password: passwordVerify.value,
       hash: hash.value,
     },
   })
   isValid.value = res.isValid
+  time.value = res.time
 }
 </script>
 
@@ -29,6 +35,10 @@ async function verifyPassword() {
   <div class="centered">
     <h1>Nuxt + Bcrypt + Cloudflare Workers</h1>
     <form @submit.prevent="hashPassword">
+      <div class="group">
+        <label for="rounds">Rounds: </label>
+        <input v-model="rounds" id="rounds" type="number" min="1" max="13">
+      </div>
       <input v-model="password" type="password">
       <button type="submit">
         Hash password
@@ -42,6 +52,7 @@ async function verifyPassword() {
       </button>
       <p>Valid? {{ isValid }}</p>
     </form>
+    <p v-if="time">Time: {{ time }}ms</p>
     <p>
       <a href="https://hub.nuxt.com">Deployed with NuxtHub</a>
       •
@@ -60,6 +71,9 @@ async function verifyPassword() {
   transform: translate(-50%, -50%);
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.group {
+  margin-bottom: 1rem;
 }
 a {
   color: #888;

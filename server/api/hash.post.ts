@@ -1,9 +1,12 @@
 import { hashSync } from 'bcrypt-edge/dist/bcrypt-edge'
 
 export default defineEventHandler(async (event) => {
-  const { password } = await readBody(event)
+  const { rounds, password } = await readBody(event)
+  const sanitizedRounds = Math.max(4, Math.min(13, typeof rounds === 'number' ? Math.floor(rounds) : 10))
 
-  const hash = hashSync(password, 10)
+  const start = performance.now()
+  const hash = hashSync(password, sanitizedRounds)
+  const end = performance.now()
 
-  return { hash }
+  return { hash, time: Math.round(end - start) }
 });
