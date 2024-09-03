@@ -1,14 +1,14 @@
 <script setup>
-const rounds = ref(10)
+const salt = ref('my-random-salt-of-min-16-bytes')
 const password = ref('')
 const hash = ref('')
 const time = ref(0)
 async function hashPassword() {
   const start = Date.now()
-  const res = await $fetch('/api/hash', {
+  const res = await $fetch('/api/scrypt/hash', {
     method: 'POST',
     body: {
-      rounds: rounds.value,
+      salt: salt.value,
       password: password.value,
     },
   })
@@ -20,10 +20,10 @@ const passwordVerify = ref('')
 const isValid = ref(false)
 async function verifyPassword() {
   const start = Date.now()
-  const res = await $fetch('/api/verify', {
+  const res = await $fetch('/api/scrypt/verify', {
     method: 'POST',
     body: {
-      rounds: rounds.value,
+      salt: salt.value,
       password: passwordVerify.value,
       hash: hash.value,
     },
@@ -35,16 +35,14 @@ async function verifyPassword() {
 
 <template>
   <div class="centered">
-    <h1>Nuxt + Bcrypt + Cloudflare Workers</h1>
+    <h1>Nuxt + Scrypt + Cloudflare Workers</h1>
     <form @submit.prevent="hashPassword">
       <div class="group">
-        <label for="rounds">Rounds: </label>
+        <label for="salt">Salt: </label>
         <input
-          id="rounds"
-          v-model="rounds"
-          type="number"
-          min="1"
-          max="13"
+          id="salt"
+          v-model="salt"
+          type="text"
         >
       </div>
       <input v-model="password" type="password">
