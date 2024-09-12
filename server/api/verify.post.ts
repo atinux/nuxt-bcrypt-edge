@@ -1,4 +1,4 @@
-import { compareSync } from 'bcrypt-edge/dist/bcrypt-edge'
+import { compareSync } from 'bcrypt-edge'
 
 export default defineEventHandler(async (event) => {
   const { hash, password } = await readBody(event)

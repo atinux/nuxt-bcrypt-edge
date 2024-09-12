@@ -1,6 +1,7 @@
 import { scrypt, randomUUID } from 'node:crypto'
 
 export default defineEventHandler(async (event) => {
+  // or globalThis['process']?.getBuiltinModule?.('crypto')
   const body = await readBody(event)
   const { salt, password } = Object.assign({
     salt: randomUUID()

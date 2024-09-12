@@ -1,4 +1,4 @@
-import { hashSync } from 'bcrypt-edge/dist/bcrypt-edge'
+import { hashSync } from 'bcrypt-edge'
 
 export default defineEventHandler(async (event) => {
   const { rounds, password } = await readBody(event)
