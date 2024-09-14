@@ -8,7 +8,11 @@ export default defineNuxtConfig({
   modules: ['@nuxthub/core', '@nuxt/eslint'],
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
-  hub: {},
+  hub: {
+    bindings: {
+      compatibilityFlags: ['nodejs_compat_v2']
+    }
+  },
 
   // https://eslint.nuxt.com
   eslint: {
@@ -16,6 +20,12 @@ export default defineNuxtConfig({
       stylistic: {
         quotes: 'single'
       }
+    }
+  },
+  // Used for scrypt
+  nitro:{
+    unenv:{
+      external: ['node:crypto']
     }
   },
 
