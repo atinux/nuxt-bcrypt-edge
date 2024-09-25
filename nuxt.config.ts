@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   // https://hub.nuxt.com/docs/getting-started/installation#options
   hub: {
     bindings: {
-      compatibilityFlags: ['nodejs_compat_v2']
+      compatibilityDate: '2024-09-24'
     }
   },
 
@@ -20,12 +20,6 @@ export default defineNuxtConfig({
       stylistic: {
         quotes: 'single'
       }
-    }
-  },
-  // Used for scrypt
-  nitro:{
-    unenv:{
-      external: ['node:crypto']
     }
   },
 
