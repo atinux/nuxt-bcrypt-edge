@@ -1,5 +1,4 @@
 <script setup>
-const salt = ref('my-random-salt-of-min-16-bytes')
 const password = ref('')
 const hash = ref('')
 const time = ref(0)
@@ -8,7 +7,6 @@ async function hashPassword() {
   const res = await $fetch('/api/scrypt/hash', {
     method: 'POST',
     body: {
-      salt: salt.value,
       password: password.value,
     },
   })
@@ -23,7 +21,6 @@ async function verifyPassword() {
   const res = await $fetch('/api/scrypt/verify', {
     method: 'POST',
     body: {
-      salt: salt.value,
       password: passwordVerify.value,
       hash: hash.value,
     },
@@ -36,15 +33,12 @@ async function verifyPassword() {
 <template>
   <div class="centered">
     <h1>Nuxt + Scrypt + Cloudflare Workers</h1>
+    <p>
+      <NuxtLink to="/scrypt">
+        See Bcrypt
+      </NuxtLink>
+    </p>
     <form @submit.prevent="hashPassword">
-      <div class="group">
-        <label for="salt">Salt: </label>
-        <input
-          id="salt"
-          v-model="salt"
-          type="text"
-        >
-      </div>
       <input v-model="password" type="password">
       <button type="submit">
         Hash password

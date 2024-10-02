@@ -5,12 +5,12 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
 
   // https://nuxt.com/modules
-  modules: ['@nuxthub/core', '@nuxt/eslint'],
+  modules: ['@nuxthub/core', '@nuxt/eslint', 'nuxt-auth-utils'],
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
   hub: {
     bindings: {
-      compatibilityDate: '2024-09-24'
+      compatibilityDate: '2024-09-25'
     }
   },
 
@@ -22,7 +22,6 @@ export default defineNuxtConfig({
       }
     }
   },
-
   // https://devtools.nuxt.com
   devtools: { enabled: true }
 })

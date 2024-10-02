@@ -36,6 +36,11 @@ async function verifyPassword() {
 <template>
   <div class="centered">
     <h1>Nuxt + Bcrypt + Cloudflare Workers</h1>
+    <p>
+      <NuxtLink to="/scrypt">
+        See Scrypt
+      </NuxtLink>
+    </p>
     <form @submit.prevent="hashPassword">
       <div class="group">
         <label for="rounds">Rounds: </label>
