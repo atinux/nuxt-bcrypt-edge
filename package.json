@@ -13,7 +13,7 @@
   "dependencies": {
     "@adonisjs/hash": "^9.0.5",
     "@nuxt/eslint": "^0.5.7",
-    "@nuxthub/core": "^0.7.21",
+    "@nuxthub/core": "0.7.22",
     "bcrypt-edge": "^0.1.0",
     "nuxt": "^3.13.2",
     "nuxt-auth-utils": "^0.4.2",
