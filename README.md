@@ -6,8 +6,8 @@ https://bcrypt.nuxt.dev
 
 ## Features
 
-- Hash a password with bcrypt-edge
-- Verify a password with bcrypt-edge
+- Hash & verify a password with bcrypt-edge
+- Also works with Scrypt (no dependency needed)
 - Server-Side rendering on Cloudflare Workers
 
 ## Setup
