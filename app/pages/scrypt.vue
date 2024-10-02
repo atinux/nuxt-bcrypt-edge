@@ -34,7 +34,7 @@ async function verifyPassword() {
   <div class="centered">
     <h1>Nuxt + Scrypt + Cloudflare Workers</h1>
     <p>
-      <NuxtLink to="/scrypt">
+      <NuxtLink to="/">
         See Bcrypt
       </NuxtLink>
     </p>
